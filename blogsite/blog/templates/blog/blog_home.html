@@ -1,0 +1,39 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="{% static 'css/stilo.css' %}">
+
+</head>
+<body>
+
+    <div style="float: left; width: 30%; margin-right: 20px;">
+        <!-- Lista de Publicaciones -->
+        <h2>Lista de Publicaciones</h2>
+        <ul>
+            {% for publicacion in publicaciones %}
+                <li><a href="{% url 'detalle_publicacion' pk=publicacion.pk %}">{{ publicacion.titulo }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div style="float: left; width: 60%;">
+        <!-- Última Publicación -->
+        <h2>Última Publicación</h2>
+        <h3>{{ ultima_publicacion.titulo }}</h3>
+        <p>{{ ultima_publicacion.contenido }}</p>
+        <p>Autor: {{ ultima_publicacion.autor.username }}</p>
+        <p>Fecha de publicación: {{ ultima_publicacion.fecha_publicacion }}</p>
+    </div>
+
+    <div style="clear: both;"></div>
+    
+    <a href="{% url 'admin:index' %}">Ir al Administrador</a>
+
+</body>
+</html>

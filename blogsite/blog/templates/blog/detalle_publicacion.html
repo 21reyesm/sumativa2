@@ -1,0 +1,28 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>{{ publicacion.titulo }}</title>
+    <link rel="stylesheet" href="{% static 'css/stilo.css' %}">
+</head>
+<body>
+    <h1>{{ publicacion.titulo }}</h1>
+    <p>Autor: {{ publicacion.autor.username }}</p>
+    <p>Contenido: {{ publicacion.contenido }}</p>
+    <p>Fecha de publicación: {{ publicacion.fecha_publicacion }}</p>
+    <p>Categorías: 
+        {% for categoria in publicacion.categorias.all %}
+            {{ categoria.nombre }}
+        {% endfor %}
+    </p>
+    <p>Etiquetas: 
+        {% for etiqueta in publicacion.etiquetas.all %}
+            {{ etiqueta.nombre }}
+        {% endfor %}
+    </p>
+    <hr>
+    <a href="{% url 'lista_publicaciones' %}">Volver a la lista de publicaciones</a>
+</body>
+</html>

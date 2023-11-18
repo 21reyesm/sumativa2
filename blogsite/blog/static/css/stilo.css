@@ -1,0 +1,24 @@
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+#publicaciones-list {
+    float: left;
+    width: 30%;
+    margin-right: 20px;
+}
+
+#ultima-publicacion {
+    float: left;
+    width: 60%;
+}
+
+.clearfix {
+    clear: both;
+}
